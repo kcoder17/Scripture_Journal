@@ -34,10 +34,6 @@ namespace ScriptureJournal.Migrations
                     b.Property<string>("Note")
                         .IsRequired();
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(60);
-
                     b.HasKey("ID");
 
                     b.ToTable("JournalEntry");

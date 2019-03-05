@@ -14,7 +14,6 @@ namespace ScriptureJournal.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Title = table.Column<string>(maxLength: 60, nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     Book = table.Column<string>(maxLength: 20, nullable: false),
                     Note = table.Column<string>(nullable: false)

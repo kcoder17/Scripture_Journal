@@ -10,10 +10,6 @@ namespace ScriptureJournal.Models
     {
         public int ID { get; set; }
 
-        [StringLength(60, MinimumLength = 3)]
-        [Required]
-        public string Title { get; set; }
-
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 

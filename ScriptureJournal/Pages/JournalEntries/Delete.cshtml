@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id:int?}"
 @model ScriptureJournal.Pages.JournalEntries.DeleteModel
 
 @{
@@ -12,12 +12,6 @@
     <h4>JournalEntry</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.JournalEntry.Title)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.JournalEntry.Title)
-        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.JournalEntry.Date)
         </dt>
@@ -37,7 +31,7 @@
             @Html.DisplayFor(model => model.JournalEntry.Note)
         </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="JournalEntry.ID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

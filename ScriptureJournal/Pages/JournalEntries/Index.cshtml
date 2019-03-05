@@ -10,12 +10,20 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form>
+    <p>
+        <select asp-for="Book" asp-items="Model.Books">
+            <option value="">All</option>
+        </select>
+        Note: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.JournalEntry[0].Title)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.JournalEntry[0].Date)
             </th>
@@ -31,9 +39,6 @@
     <tbody>
 @foreach (var item in Model.JournalEntry) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
