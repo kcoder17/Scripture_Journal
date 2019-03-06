@@ -5,22 +5,19 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-
-<form>
-    <p>
-        <select asp-for="Book" asp-items="Model.Books">
+<h1 class="text-center" style="margin-bottom: 30px">View Entries</h1>
+<a asp-page="Create" class="btn btn-primary" style="float: right; margin-bottom: 10px">Create New Entry</a>
+<form class="form-inline" style="margin-bottom: 10px">
+    <div class="form-group">
+        <div style="margin: 0 15px 0 12px; font-weight: bold">Book</div>
+        <select asp-for="Book" asp-items="Model.Books" class="form-control" style="margin-right: 15px">
             <option value="">All</option>
         </select>
-        Note: <input type="text" asp-for="SearchString" />
-        <input type="submit" value="Filter" />
-    </p>
+        <div style="margin-right: 15px; font-weight: bold">Note</div>
+        <input type="text" asp-for="SearchString" class="form-control" style="margin-right: 15px" />
+        <input class="btn btn-primary" type="submit" value="Filter" />
+    </div>
 </form>
-
 <table class="table">
     <thead>
         <tr>
@@ -44,19 +41,19 @@
         @foreach (var item in Model.JournalEntry)
         {
             <tr>
-                <td>
+                <td style="vertical-align: middle;">
                     @Html.DisplayFor(modelItem => item.Date)
                 </td>
-                <td>
+                <td style="vertical-align: middle;">
                     @Html.DisplayFor(modelItem => item.Book)
                 </td>
-                <td>
+                <td style="vertical-align: middle;">
                     @Html.DisplayFor(modelItem => item.Note)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                    <a asp-page="./Edit" asp-route-id="@item.ID" class="btn btn-primary btn-sm" style="padding: 2px 8px 2px 8px">Edit</a>
+                    <a asp-page="./Details" asp-route-id="@item.ID" class="btn btn-primary btn-sm" style="padding: 2px 8px 2px 8px">Details</a>
+                    <a asp-page="./Delete" asp-route-id="@item.ID" class="btn btn-primary btn-sm" style="padding: 2px 8px 2px 8px">Delete</a>
                 </td>
             </tr>
         }
@@ -72,13 +69,13 @@
    asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.JournalEntry.PageIndex - 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
-   class="btn btn-default @prevDisabled">
+   class="btn btn-primary @prevDisabled">
     Previous
 </a>
 <a asp-page="./Index"
    asp-route-sortOrder="@Model.CurrentSort"
    asp-route-pageIndex="@(Model.JournalEntry.PageIndex + 1)"
    asp-route-currentFilter="@Model.CurrentFilter"
-   class="btn btn-default @nextDisabled">
+   class="btn btn-primary @nextDisabled">
     Next
 </a>

@@ -5,38 +5,33 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>JournalEntry</h4>
+<h1 class="text-center" style="margin-bottom: 30px">Create Journal Entry</h1>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="offset-3 col-md-6">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="JournalEntry.Date" class="control-label"></label>
+                <label asp-for="JournalEntry.Date" class="control-label" style="font-weight: bold"></label>
                 <input asp-for="JournalEntry.Date" class="form-control" />
                 <span asp-validation-for="JournalEntry.Date" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="JournalEntry.Book" class="control-label"></label>
+                <label asp-for="JournalEntry.Book" class="control-label" style="font-weight: bold"></label>
                 <input asp-for="JournalEntry.Book" class="form-control" />
                 <span asp-validation-for="JournalEntry.Book" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="JournalEntry.Note" class="control-label"></label>
-                <input asp-for="JournalEntry.Note" class="form-control" />
+                <label asp-for="JournalEntry.Note" class="control-label" style="font-weight: bold"></label>
+                <textarea asp-for="JournalEntry.Note" class="form-control" rows="4"></textarea>
                 <span asp-validation-for="JournalEntry.Note" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <a asp-page="Index" class="btn btn-primary">Back</a>
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {
