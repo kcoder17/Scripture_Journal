@@ -33,8 +33,8 @@ namespace ScriptureJournal.Pages.JournalEntries
         public async Task OnGetAsync(string sortOrder, string currentFilter, string searchString, int? pageIndex)
         {
             CurrentSort = sortOrder;
-            BookSort = String.IsNullOrEmpty(sortOrder) ? "book_desc" : "";
-            DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+            DateSort = String.IsNullOrEmpty(sortOrder) ? "date_desc" : "";
+            BookSort = sortOrder == "Book" ? "book_desc" : "Book";
 
             if (searchString != null)
             {
@@ -69,14 +69,14 @@ namespace ScriptureJournal.Pages.JournalEntries
                 case "book_desc":
                     entries = entries.OrderByDescending(s => s.Book);
                     break;
-                case "Date":
-                    entries = entries.OrderBy(s => s.Date);
+                case "Book":
+                    entries = entries.OrderBy(s => s.Book);
                     break;
                 case "date_desc":
                     entries = entries.OrderByDescending(s => s.Date);
                     break;
                 default:
-                    entries = entries.OrderBy(s => s.Book);
+                    entries = entries.OrderBy(s => s.Date);
                     break;
             }
             int pageSize = 5;
